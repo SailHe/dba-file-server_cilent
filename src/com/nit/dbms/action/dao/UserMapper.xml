@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nit.dbms.action.dao.UserMapper">
+	<resultMap type="com.nit.dbms.action.model.UserBean" id="UserMap">
+		<result property="userId" column="user_id" />
+		<result property="loginName" column="login_name" />
+		<result property="loginPwd" column="login_pwd" />
+		<result property="userName" column="user_name" />
+		<result property="userSex" column="user_sex" />
+	</resultMap>
+	<!-- 根据登录名查询得到一个user对象，注意输入参数与返回值 -->
+	<select id="getUserByLoginName" parameterType="String"
+			resultMap="UserMap">
+		select * from tb_user where login_name=#{LoginName}
+	</select>
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nit.dbms.action.mybatis.UserMapper">
+  <resultMap id="BaseResultMap" type="nit.dbs.mybatis.User">
+    <id column="UserId" jdbcType="INTEGER" property="userId" />
+    <result column="LoginName" jdbcType="VARCHAR" property="loginName" />
+    <result column="LoginPwd" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="UserName" jdbcType="VARCHAR" property="userName" />
+    <result column="UserSexy" jdbcType="VARCHAR" property="userSexy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    UserId, LoginName, LoginPwd, UserName, UserSexy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user
+    where UserId = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_user
+    where UserId = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="nit.dbs.mybatis.User">
+    <selectKey keyProperty="userId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_user (LoginName, LoginPwd, UserName, 
+      UserSexy)
+    values (#{loginName,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{userSexy,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="nit.dbs.mybatis.User">
+    <selectKey keyProperty="userId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        LoginName,
+      </if>
+      <if test="loginPwd != null">
+        LoginPwd,
+      </if>
+      <if test="userName != null">
+        UserName,
+      </if>
+      <if test="userSexy != null">
+        UserSexy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSexy != null">
+        #{userSexy,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="nit.dbs.mybatis.User">
+    update tb_user
+    <set>
+      <if test="loginName != null">
+        LoginName = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        LoginPwd = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        UserName = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSexy != null">
+        UserSexy = #{userSexy,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where UserId = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="nit.dbs.mybatis.User">
+    update tb_user
+    set LoginName = #{loginName,jdbcType=VARCHAR},
+      LoginPwd = #{loginPwd,jdbcType=VARCHAR},
+      UserName = #{userName,jdbcType=VARCHAR},
+      UserSexy = #{userSexy,jdbcType=VARCHAR}
+    where UserId = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>
