@@ -18,7 +18,7 @@ public class TestDemo {
 			//UserHibernateDao userDao = new UserHibernateDao();
 			//UserMybatisDao userDao = new UserMybatisDao();
 			List<UserBean> listUser = new ArrayList<UserBean>();
-			listUser = userDao.getUserByLoginName("3160407092",1);
+			listUser = userDao.getUserByLoginName("ln",1);
 			UserBean userBean = new UserBean();
 			System.out.println(k + "————————————————————————————————");
 			for (int i = 0; i < listUser.size(); i++) {
