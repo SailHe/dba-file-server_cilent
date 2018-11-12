@@ -1,18 +1,12 @@
 package com.nit.dbms.action.dao;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.nit.dbms.action.model.UserBean;
 import com.nit.dbms.action.util.DBUtil;
-import com.nit.dbms.action.util.DCUtil;
 import com.nit.dbms.action.util.DPUtil;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDao {
     // 采用三种方式根据登录名称得到用户所有信息

@@ -1,4 +1,6 @@
-package com.nit.dbms.action.view;
+package com.nit.dbms.server.gui;
+
+import com.nit.dbms.server.MsgClientThread_08;
 
 import javax.swing.*;
 import java.awt.*;
@@ -48,10 +50,12 @@ public class MsgClientUI_07 extends JFrame {
             }
         });
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 int a = JOptionPane.showConfirmDialog(null, "确定关闭吗？", "温馨提示", JOptionPane.YES_NO_OPTION);
                 if (a == 1) {
-                    System.exit(0); // 关闭
+                    // 关闭
+                    System.exit(0);
                 }
             }
         });
@@ -71,10 +75,10 @@ public class MsgClientUI_07 extends JFrame {
         this.add(top, BorderLayout.NORTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // 设置显示大小及位置等属性
-        Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int SwingX = 500;
         int SwingY = 400;
-        this.setBounds(screensize.width / 2 - SwingX / 2, screensize.height / 2 - SwingY / 2, SwingX, SwingY);
+        this.setBounds(screenSize.width / 2 - SwingX / 2, screenSize.height / 2 - SwingY / 2, SwingX, SwingY);
         this.setSize(SwingX, SwingY);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);

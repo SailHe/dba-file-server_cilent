@@ -1,6 +1,6 @@
 package com.nit.dbms.action.util;
 
-import com.nit.dbms.introduction.ProjectConstant;
+import com.nit.dbms.jdbc.ProjectConstant;
 
 import java.sql.*;
 
@@ -9,7 +9,7 @@ public class DBUtil {
 	// 定义MySQL数据库连接信息
 	private final static String driverName = "com.mysql.jdbc.Driver";
 	private final static String dbURL = "jdbc:mysql://127.0.0.1:3306/jiaowu_schema?useSSL=false";
-	private final static String userName = "root";
+	private final static String userName = "sailhe";
 	private final static String userPwd = ProjectConstant.dbaPass;
 
 	// 加载数据库驱动

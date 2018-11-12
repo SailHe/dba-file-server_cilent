@@ -1,4 +1,4 @@
-package com.nit.dbms.action.view;
+package com.nit.dbms.server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,6 +20,7 @@ public class MsgServerListen_06 extends Thread {
 	}
 
 	// 为每一个客户端创建线程等待接收信息，然后把信息广播出去
+	@Override
 	public void run() {
 		String msg = "";
 		while (true) {

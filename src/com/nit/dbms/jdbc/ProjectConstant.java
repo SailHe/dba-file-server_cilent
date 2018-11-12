@@ -1,4 +1,4 @@
-package com.nit.dbms.introduction;
+package com.nit.dbms.jdbc;
 
 /**
  * Description: 无描述类<p>
@@ -8,5 +8,5 @@ package com.nit.dbms.introduction;
  * @date: 2018/11/8 15:53
  */
 public class ProjectConstant {
-    public static final String dbaPass  = "输入你自己的密码";
+    public static final String dbaPass  = "001230";
 }

@@ -1,5 +1,7 @@
 package com.nit.dbms.introduction;
 
+import com.nit.dbms.jdbc.DBConn;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

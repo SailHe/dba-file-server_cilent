@@ -9,7 +9,7 @@
 		<!-- 指定连接的数据库的url，我这里是连接到本地的test数据库上 -->
 		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/jiaowu_schema</property>
 		<!-- 连接数据库的用户名 -->
-		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.username">sailhe</property>
 		<!-- 连接数据库的密码(我这里是为空的) -->
 		<property name="hibernate.connection.password">mysql</property>
 		<!-- 指定连接池中的最大连接数 -->

@@ -1,4 +1,6 @@
-package com.nit.dbms.action.view;
+package com.nit.dbms.server;
+
+import com.nit.dbms.server.gui.MsgClientUI_07;
 
 import java.io.BufferedReader;
 import java.io.IOException;

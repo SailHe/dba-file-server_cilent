@@ -1,4 +1,4 @@
-package com.nit.dbms.action.view;
+package com.nit.dbms.server;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,10 +19,14 @@ public class MsgServerUI_04 extends JFrame {
         MsgServerUI_04 serverUI = new MsgServerUI_04();
 	}
 
-	public JButton btStart;// 启动服务器
-	public JTextArea taShow;// 信息展示
-	public MsgServerThread_05 server;// 用来监听客户端连接
-	static List<Socket> clients;// 保存连接到服务器的客户端
+    // 启动服务器
+	public JButton btStart;
+    // 信息展示
+	public JTextArea taShow;
+    // 用来监听客户端连接
+	public MsgServerThread_05 server;
+    // 保存连接到服务器的客户端
+	static List<Socket> clients;
 
 	public MsgServerUI_04() {
 		super("服务器端");
@@ -31,7 +35,8 @@ public class MsgServerUI_04 extends JFrame {
 
 		//启动监听线程
 		btStart.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			@Override
+            public void actionPerformed(ActionEvent e) {
 				server = new MsgServerThread_05(MsgServerUI_04.this);
 			}
 		});
@@ -41,7 +46,8 @@ public class MsgServerUI_04 extends JFrame {
 				int a = JOptionPane.showConfirmDialog(null, "确定关闭吗？", "温馨提示", JOptionPane.YES_NO_OPTION);
 				if (a == 1) {
 					server.closeServer();
-					System.exit(0); // 关闭
+                    // 关闭
+					System.exit(0);
 				}
 			}
 		});

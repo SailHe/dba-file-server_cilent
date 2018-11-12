@@ -1,4 +1,4 @@
-package com.nit.dbms.introduction;
+package com.nit.dbms.jdbc;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 import com.nit.dbms.introduction.StudentBean;
 import com.nit.dbms.introduction.StudentDao;
 
-public class GUITest extends JFrame {
+public class GUIForJDBC extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	// 程序主框架
@@ -50,7 +50,7 @@ public class GUITest extends JFrame {
 	List<StudentBean> listStudent = new ArrayList<StudentBean>();
 	private StudentBean studentBean = new StudentBean();
 
-	public GUITest() {
+	public GUIForJDBC() {
 		jTextMessage = new JTextField("查询内容");
 		jButtonQuery = new JButton("查询");
 		jButtonAdd = new JButton("添加");
@@ -79,10 +79,10 @@ public class GUITest extends JFrame {
 		// 定义主界面框架
 		jFrame = new JFrame("学生信息");
 		// 设置显示大小及位置等属性
-		Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int SwingX = 600;
 		int SwingY = 500;
-		jFrame.setBounds(screensize.width / 2 - SwingX / 2, screensize.height / 2 - SwingY / 2, SwingX, SwingY);
+		jFrame.setBounds(screenSize.width / 2 - SwingX / 2, screenSize.height / 2 - SwingY / 2, SwingX, SwingY);
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container contentPane = jFrame.getContentPane();
 		contentPane.add(jPanel, BorderLayout.CENTER);
@@ -91,6 +91,7 @@ public class GUITest extends JFrame {
 
 		// 查询消息按钮单击事件
 		jButtonQuery.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 单击触发事件
 				try {
@@ -105,6 +106,7 @@ public class GUITest extends JFrame {
 
 		// 添加消息按钮单击事件
 		jButtonAdd.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 单击触发事件
 				try {
@@ -167,21 +169,25 @@ public class GUITest extends JFrame {
 		private static final long serialVersionUID = 1L;
 
 		// 设置单元格不可编辑
+		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex) {
 			return false;
 		}
 
 		// 返回表格的列数
+		@Override
 		public int getColumnCount() {
 			return 5;
 		}
 
 		// 返回表格的行数
+		@Override
 		public int getRowCount() {
 			return listStudent.size();
 		}
 
 		// 文件列表表头
+		@Override
 		public String getColumnName(int col) {
 			switch (col) {
 			case 0:
@@ -199,6 +205,7 @@ public class GUITest extends JFrame {
 		}
 
 		// 显示列表值
+		@Override
 		public Object getValueAt(int row, int col) {
 			studentBean = listStudent.get(row);
 			if (col == 0) {
@@ -220,7 +227,7 @@ public class GUITest extends JFrame {
 		}
 	}
 
-	public static void main(String args[]) {
-		new GUITest();
+	public static void main(String[] args) {
+		new GUIForJDBC();
 	}
 }

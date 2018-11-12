@@ -1,4 +1,4 @@
-package com.nit.dbms.action.view;
+package com.nit.dbms.server;
 
 import com.nit.dbms.action.dao.MessageDao;
 import com.nit.dbms.action.dao.UserDao;
@@ -177,17 +177,20 @@ public class MsgDemo_03 extends JFrame {
 		private static final long serialVersionUID = 1L;
 
 		// 设置单元格不可编辑
-		public boolean isCellEditable(int rowIndex, int columnIndex) {
+		@Override
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
 			return false;
 		}
 
 		// 返回表格的列数
-		public int getColumnCount() {
+		@Override
+        public int getColumnCount() {
 			return 5;
 		}
 
 		// 返回表格的行数
-		public int getRowCount() {
+		@Override
+        public int getRowCount() {
 			return listMessage.size();
 		}
 
@@ -209,7 +212,8 @@ public class MsgDemo_03 extends JFrame {
 		}
 
 		// 显示列表值
-		public Object getValueAt(int row, int col) {
+		@Override
+        public Object getValueAt(int row, int col) {
 			msgBean = listMessage.get(row);
 			if (col == 0) {
 				return msgBean.getMessageId();
@@ -224,10 +228,11 @@ public class MsgDemo_03 extends JFrame {
 				return msgBean.getReceiveName();
 			}
 			if (col == 4) {
-				if (msgBean.getMessageFlag().equals(0))
-					return "未读";
-				else
-					return "已读";
+				if (msgBean.getMessageFlag().equals(0)) {
+                    return "未读";
+                } else {
+                    return "已读";
+                }
 			}
 			return null;
 		}

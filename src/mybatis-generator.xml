@@ -18,7 +18,7 @@
 
 		<!-- 配置数据库信息 -->
 		<jdbcConnection connectionURL="jdbc:mysql://127.0.0.1/db"
-			driverClass="com.mysql.jdbc.Driver" password="请输入自己的密码" userId="root">
+			driverClass="com.mysql.jdbc.Driver" password="请输入自己的密码" userId="sailhe">
 			<property name="remarksReporting" value="true"></property>
 		</jdbcConnection>
 
