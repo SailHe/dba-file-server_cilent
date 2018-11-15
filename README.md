@@ -8,7 +8,14 @@
 6. mybatis + hibernate
 
 * 图标错误, 或无法运行
-1. 配置好jdk
-2. `现象`![step](docs/assets/err/err_1_file_icon.png)
-3. `配置源文件目录-1`![step](docs/assets/err/reason_1.png)
-4. `配置源文件目录-2`![step](docs/assets/err/solving_1.png)
+1. `现象`![step](docs/assets/err/err_1_file_icon.png)
+2. `配置源文件目录-1`![step](docs/assets/err/reason_1.png)
+3. `配置源文件目录-2`![step](docs/assets/err/solve_1.png)
+* 输出目录未配置错误 @see https://blog.csdn.net/zZ_life/article/details/51318306
+1. `现象`![step](docs/assets/err/err_2_out_path.png)
+2. `配置`![step](docs/assets/err/solve_2_1.png)
+3. `配置`![step](docs/assets/err/solve_2_2.png)
+* 配置jdk可能的错误
+1. `现象`![step](docs/assets/err/err_3_jdk_invalid.PNG)
+3. `原因`![step](docs/assets/err/reason_3.PNG)
+2. `配置`![step](docs/assets/err/solve_3.PNG)
