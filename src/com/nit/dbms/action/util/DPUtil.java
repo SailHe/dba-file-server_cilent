@@ -23,7 +23,7 @@ public class DPUtil {
     private final static String driverName = "org.logicalcobwebs.proxool.ProxoolDriver";
     private final static String dbURL = "proxool.mysql:com.mysql.jdbc.Driver:jdbc:mysql://127.0.0.1:3306/jiaowu_schema?useSSL=false";
     private final static String userName = "sailhe";
-    private final static String userPwd = ProjectConstant.dbaPass;
+    private final static String userPwd = ProjectConstant.DBA_PASSWORD;
 
     // 获得与指定数据库的连接
     public static Connection getConn() throws SQLException, ClassNotFoundException {

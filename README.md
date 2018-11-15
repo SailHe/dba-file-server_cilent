@@ -1,4 +1,4 @@
-# Java Demo
+# DBMS(Data Base Management System) 数据库管理系统
 基于java
 1. DBA 数据库: 各种连接池的Demo位于: com.nit.dbms.action.util
 2. 文件

@@ -25,7 +25,7 @@ public class DCUtil {
     private final static String driverName = "com.mysql.jdbc.Driver";
     private final static String dbURL = "jdbc:mysql://127.0.0.1:3306/jiaowu_schema?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
     private final static String userName = "sailhe";
-    private final static String userPwd = ProjectConstant.dbaPass;
+    private final static String userPwd = ProjectConstant.DBA_PASSWORD;
     //定义数据库连接池
     private static DataSource ds;
 

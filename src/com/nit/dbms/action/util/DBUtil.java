@@ -10,7 +10,7 @@ public class DBUtil {
 	private final static String driverName = "com.mysql.jdbc.Driver";
 	private final static String dbURL = "jdbc:mysql://127.0.0.1:3306/jiaowu_schema?useSSL=false";
 	private final static String userName = "sailhe";
-	private final static String userPwd = ProjectConstant.dbaPass;
+	private final static String userPwd = ProjectConstant.DBA_PASSWORD;
 
 	// 加载数据库驱动
 	static {
