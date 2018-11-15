@@ -1,6 +1,6 @@
 # DBMS(Data Base Management System) 数据库管理系统
 基于java
-1. DBA 数据库: 各种连接池的Demo位于: com.nit.dbms.action.util
+1. DBA 数据库: 各种连接池(DBCP)的Demo位于: com.nit.dbms.action.util
 2. 文件
 3. GUI
 4. fork来源: https://gitee.com/nit-zju_admin/dba/tree/master
