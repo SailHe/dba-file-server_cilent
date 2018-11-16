@@ -1,8 +1,8 @@
 package com.nit.demo.dbms.dao.user;
 
 import com.nit.demo.dbms.model.UserBean;
-import com.nit.demo.dbms.util.DBUtil;
-import com.nit.demo.dbms.util.DPUtil;
+import com.nit.demo.dbms.util.jdbc.DBUtil;
+import com.nit.demo.dbms.util.jdbc.DPUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -22,8 +22,8 @@ public class UserDao implements UserDaoInterface {
         PreparedStatement prestmt = null;
         CallableStatement cstmt = null;
         ResultSet rs = null;
-        String sql = "";
-        List<UserBean> listUser = new ArrayList<UserBean>();
+        String sql;
+        List<UserBean> listUser = new ArrayList<>();
 
         try {
             //使用不同的连接方式
@@ -51,7 +51,7 @@ public class UserDao implements UserDaoInterface {
             }
             conn.commit();
             // 从数据集类型转化为List数据结构
-            UserBean userBean = null;
+            UserBean userBean;
             while (rs.next()) {
                 userBean = new UserBean();
                 userBean.setUserId(Integer.parseInt(rs.getString(1)));
@@ -75,7 +75,7 @@ public class UserDao implements UserDaoInterface {
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
-        List<UserBean> listUser = new ArrayList<UserBean>();
+        List<UserBean> listUser = new ArrayList<>();
 
         try {
             //使用不同的连接方式
@@ -84,7 +84,7 @@ public class UserDao implements UserDaoInterface {
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
             // 从数据集类型转化为List数据结构
-            UserBean userBean = null;
+            UserBean userBean;
             while (rs.next()) {
                 userBean = new UserBean();
                 userBean.setUserId(Integer.parseInt(rs.getString(1)));

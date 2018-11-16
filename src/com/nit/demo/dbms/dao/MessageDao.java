@@ -1,7 +1,7 @@
 package com.nit.demo.dbms.dao;
 
 import com.nit.demo.dbms.model.MessageBean;
-import com.nit.demo.dbms.util.DBUtil;
+import com.nit.demo.dbms.util.jdbc.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,6 +1,6 @@
 package com.nit.demo.dbms.dao.student;
 
-import com.nit.demo.dbms.util.DBUtil;
+import com.nit.demo.dbms.util.jdbc.DBUtil;
 
 import java.sql.*;
 import java.util.ArrayList;

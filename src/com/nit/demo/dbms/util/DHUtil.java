@@ -12,13 +12,15 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
  * Descriptions: Hibernate的连接工具<p>
  * 需要hibernate-*.jar,jboss-*.jar,org.apache.geronimo-jta-*.jar,dom4j-*.jar,antlr-*.jar,javassist-*.jar
  *
+ * 目前, Proxool和DBCP以及C3P0一起，最为常见的三种JDBC连接池技术。
+ * Hibernate官方宣布由于Bug太多不再支持DBCP，而推荐使用 Proxool或C3P0。
+ *
  * @date 2018/11/12 23:01
  */
 public class DHUtil {
 
     // 获得与指定数据库的连接
     public static SessionFactory getConn() throws SQLException, ClassNotFoundException {
-        SessionFactory sessionFactory;
         // 不带参数的configure方法将默认加载hibernate.cfg.xml文件
         Configuration configuration = new Configuration().configure();
         // 通过addAnnotatedClass方法添加已经注解的持久化类
@@ -26,7 +28,7 @@ public class DHUtil {
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties()).build();
         // 以Configuration实例创建SessionFactory实例
-        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         return sessionFactory;
     }
 
