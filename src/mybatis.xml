@@ -9,13 +9,12 @@
 				<property name="driver" value="com.mysql.jdbc.Driver" />
 				<property name="url" value="jdbc:mysql://127.0.0.1:3306/jiaowu_schema?useSSL=false" />
 				<property name="username" value="sailhe" />
-				<property name="password" value="请输入自己的密码" />
+				<property name="password" value="123456@password" />
 			</dataSource>
 		</environment>
 	</environments>
 	<!-- 添加映射配置文件 -->
 	<mappers>
-		<mapper resource="com/nit/dbms/action/dao/UserMapper.xml" />
-
+		<mapper resource="com/nit/demo/dbms/dao/user/UserMapper.xml" />
 	</mappers>
 </configuration>

@@ -26,9 +26,9 @@ public class UserMybatisDao implements UserDaoInterface {
             sessionFactory = DMUtil.getConn();
             // 创建Session
             session = sessionFactory.openSession();
-            //映射sql的标识字符串
-            String msql = "com.nit.dbms.action.dao.UserMapper.getUserByLoginName";
-            //执行查询返回一个唯一user对象的sql
+            // 映射sql的标识字符串
+            String msql = "com.nit.demo.dbms.dao.user.UserMapper.getUserByLoginName";
+            // 执行查询返回一个唯一user对象的sql
             listUser = session.selectList(msql, loginName);
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class UserMybatisDao implements UserDaoInterface {
             // 创建Session
             session = sessionFactory.openSession();
             //映射sql的标识字符串
-            String msql = "com.nit.dbms.action.dao.UserMapper.getUserInfo";
+            String msql = "com.nit.demo.dbms.dao.user.UserMapper.getUserInfo";
             //执行查询返回一个唯一user对象的sql
             listUser = session.selectList(msql);
         } catch (Exception e) {
