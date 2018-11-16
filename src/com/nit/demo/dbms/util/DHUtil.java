@@ -18,7 +18,7 @@ public class DHUtil {
 
     // 获得与指定数据库的连接
     public static SessionFactory getConn() throws SQLException, ClassNotFoundException {
-        SessionFactory sessionFactory = null;
+        SessionFactory sessionFactory;
         // 不带参数的configure方法将默认加载hibernate.cfg.xml文件
         Configuration configuration = new Configuration().configure();
         // 通过addAnnotatedClass方法添加已经注解的持久化类

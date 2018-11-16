@@ -7,11 +7,11 @@
 		<!-- 指定连接数据库的驱动类 -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<!-- 指定连接的数据库的url，我这里是连接到本地的test数据库上 -->
-		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/jiaowu_schema</property>
+		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/jiaowu_schema?useSSL=false</property>
 		<!-- 连接数据库的用户名 -->
 		<property name="hibernate.connection.username">sailhe</property>
 		<!-- 连接数据库的密码(我这里是为空的) -->
-		<property name="hibernate.connection.password">mysql</property>
+		<property name="hibernate.connection.password">123456@password</property>
 		<!-- 指定连接池中的最大连接数 -->
 		<property name="hibernate.c3p0.max_size">20</property>
 		<!-- 指定连接池中最小连接数 -->

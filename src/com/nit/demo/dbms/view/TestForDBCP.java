@@ -40,8 +40,8 @@ public class TestForDBCP {
 
 	public static void main(String[] srg) {
         // 初始化用户实例进行测试
-		test(new UserDao());
-        //test(new UserHibernateDao());
-		test(new UserMybatisDao());
+		//test(new UserDao());
+        test(new UserHibernateDao());
+        //test(new UserMybatisDao());
 	}
 }
