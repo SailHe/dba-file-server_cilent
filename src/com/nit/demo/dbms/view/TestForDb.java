@@ -42,14 +42,15 @@ public class TestForDb {
         // 初始化用户实例进行测试
 
         //C3p0: 2336 2642 2388 2541                avl:2476.75
+        //JDBC 2560 2508 2487 2535                 avl:2522.5
         //Proxool 2999 2870 2819 2713 2690         avl:2818.2
-        //test(new UserDao());
+        test(new UserDao());
 
         //更改session获取方法之前(34536 36124)        avl:35330
         // -> 更改之后(4879 5094 5284 4924)          avl:5045.25
         //test(new UserHibernateDao());
 
         //8030 8342 7828 7493 7674                 avl:7873.4
-        test(new UserMybatisDao());
+        //test(new UserMybatisDao());
 	}
 }
