@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import com.nit.demo.dbms.model.UserBean;
-import com.nit.demo.dbms.util.DHUtil;
+import com.nit.demo.dbms.util.HibernateUtil;
 
 /**
  * Descriptions: 使用Hibernate实现的用户访问对象(DAO)<p>
@@ -24,10 +24,11 @@ public class UserHibernateDao implements UserDaoInterface {
         Session session = null;
         List<UserBean> listUser = new ArrayList<>();
         try {
-            sessionFactory = DHUtil.getConn();
             String hql = "from UserBean where loginName = :loginName";
+            /*sessionFactory = HibernateUtil.getConn();
             // 创建Session
-            session = sessionFactory.openSession();
+            session = sessionFactory.openSession();*/
+            session = HibernateUtil.getConn();
             // 开始事务
             Transaction transaction = session.beginTransaction();
             Query query = session.createQuery(hql);
@@ -39,7 +40,7 @@ public class UserHibernateDao implements UserDaoInterface {
             e.printStackTrace();
         } finally {
             // 关闭数据库实例
-            DHUtil.closeConn(session, sessionFactory);
+            HibernateUtil.closeConn(session, sessionFactory);
         }
         return listUser;
     }
@@ -51,16 +52,17 @@ public class UserHibernateDao implements UserDaoInterface {
         Session session = null;
         List<UserBean> listUser = new ArrayList<>();
         try {
-            sessionFactory = DHUtil.getConn();
             String hql = "from UserBean";
-            session = sessionFactory.openSession();
+            /*sessionFactory = HibernateUtil.getConn();
+            session = sessionFactory.openSession();*/
+            session = HibernateUtil.getConn();
             Query query = session.createQuery(hql);
             listUser = query.list();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             // 关闭数据库实例
-            DHUtil.closeConn(session, sessionFactory);
+            HibernateUtil.closeConn(session, sessionFactory);
         }
         return listUser;
     }

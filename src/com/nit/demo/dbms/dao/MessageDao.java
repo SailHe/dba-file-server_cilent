@@ -1,7 +1,7 @@
 package com.nit.demo.dbms.dao;
 
 import com.nit.demo.dbms.model.MessageBean;
-import com.nit.demo.dbms.util.jdbc.DBUtil;
+import com.nit.demo.dbms.util.jdbc.JDBCUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +18,7 @@ public class MessageDao {
 		ResultSet rs = null;
 		List<MessageBean> listMessage = new ArrayList<MessageBean>();
 		try {
-			conn = DBUtil.getConn();
+			conn = JDBCUtil.getConn();
 			// 通过预编译语句集的方式进行查询
 			String sql = "select tbm.*, tbus.userName as SenderName, tbur.userName as ReceiveName from tb_message as tbm, tb_user as tbus, tb_user as tbur where tbm.messageSender = tbus.userId and tbm.messageReceiver = tbur.userId and (tbm.messageSender = ? or tbm.messageReceiver = ?) order by messageId desc";
 			prestmt = conn.prepareStatement(sql);
@@ -46,7 +46,7 @@ public class MessageDao {
 			e.printStackTrace();
 		} finally {
 			// 关闭数据库实例
-			DBUtil.closeConn(rs, null, prestmt, null, conn);
+			JDBCUtil.closeConn(rs, null, prestmt, null, conn);
 		}
 		return listMessage;
 	}
@@ -58,7 +58,7 @@ public class MessageDao {
 		PreparedStatement prestmt = null;
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			conn = DBUtil.getConn();
+			conn = JDBCUtil.getConn();
 			String sql = "insert into tb_message(messageSender, sendIP, sendTime, messageContext, messageReceiver) values(?, ?, ?, ?, ?)";
 			prestmt = conn.prepareStatement(sql);
 			prestmt.setInt(1, messageSender);
@@ -71,7 +71,7 @@ public class MessageDao {
 			e.printStackTrace();
 		} finally {
 			// 关闭数据库实例
-			DBUtil.closeConn(null, null, prestmt, null, conn);
+			JDBCUtil.closeConn(null, null, prestmt, null, conn);
 		}
 		return result;
 	}
@@ -83,7 +83,7 @@ public class MessageDao {
 		PreparedStatement prestmt = null;
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			conn = DBUtil.getConn();
+			conn = JDBCUtil.getConn();
 			String sql = "update tb_message set receiveIP = ?, receiveTime = ?, messageFlag = ? where messageId = ?";
 			prestmt = conn.prepareStatement(sql);
 			prestmt.setString(1, ipAddress);
@@ -95,7 +95,7 @@ public class MessageDao {
 			e.printStackTrace();
 		} finally {
 			// 关闭数据库实例
-			DBUtil.closeConn(null, null, prestmt, null, conn);
+			JDBCUtil.closeConn(null, null, prestmt, null, conn);
 		}
 		return result;
 	}

@@ -12,6 +12,7 @@
 		<property name="hibernate.connection.username">sailhe</property>
 		<!-- 连接数据库的密码(我这里是为空的) -->
 		<property name="hibernate.connection.password">123456@password</property>
+
 		<!-- 指定连接池中的最大连接数 -->
 		<property name="hibernate.c3p0.max_size">20</property>
 		<!-- 指定连接池中最小连接数 -->
@@ -20,6 +21,7 @@
 		<property name="hibernate.c3p0.timeout">5000</property>
 		<!-- 指定连接池里最大缓存多少个Statement对象 -->
 		<property name="hibernate.c3p0.max_statements">100</property>
+
 		<!-- 指定数据库方言（就是说你这个数据库是什么类型的） -->
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 		<!-- 设置：根据需要自动创建（更新）数据库表 -->

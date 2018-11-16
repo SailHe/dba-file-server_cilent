@@ -8,7 +8,7 @@ import java.sql.*;
  * 2825 2710 2671 2705
  * @date 2018/11/12 23:01
  */
-public class DBUtil {
+public class JDBCUtil {
     // 加载数据库驱动
     static {
         try {

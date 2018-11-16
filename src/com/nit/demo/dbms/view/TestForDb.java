@@ -14,7 +14,7 @@ import java.util.List;
  * @author Unknown||Hidden
  * @date 2018/11/15 17:10
  */
-public class TestForDBCP {
+public class TestForDb {
 
     private static void test(UserDaoInterface userDao){
         java.util.Date startTime = new java.util.Date();
@@ -40,9 +40,16 @@ public class TestForDBCP {
 
 	public static void main(String[] srg) {
         // 初始化用户实例进行测试
+
+        //C3p0: 2336 2642 2388 2541                avl:2476.75
+        //Proxool 2999 2870 2819 2713 2690         avl:2818.2
         //test(new UserDao());
-        //34536 36124
-        test(new UserHibernateDao());
-        //test(new UserMybatisDao());
+
+        //更改session获取方法之前(34536 36124)        avl:35330
+        // -> 更改之后(4879 5094 5284 4924)          avl:5045.25
+        //test(new UserHibernateDao());
+
+        //8030 8342 7828 7493 7674                 avl:7873.4
+        test(new UserMybatisDao());
 	}
 }

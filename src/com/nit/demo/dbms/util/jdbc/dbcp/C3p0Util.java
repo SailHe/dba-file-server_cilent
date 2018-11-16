@@ -1,4 +1,4 @@
-package com.nit.demo.dbms.util.jdbc;
+package com.nit.demo.dbms.util.jdbc.dbcp;
 
 import java.beans.PropertyVetoException;
 import java.sql.CallableStatement;
@@ -11,6 +11,8 @@ import java.sql.Statement;
 import javax.sql.DataSource;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.nit.demo.dbms.util.jdbc.JDBCConfig;
+import com.nit.demo.dbms.util.jdbc.JDBCUtil;
 
 /**
  * Descriptions: c3p 的连接工具<p>
@@ -22,10 +24,9 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
  * 是一个成熟的、高并发的JDBC连接池库，用于缓存和重用PreparedStatements支持。
  * c3p0具有自动回收空闲连接功能。
  *
- * 2336 2642 2388 2541
  * @date 2018/11/12 23:01
  */
-public class DCUtil {
+public class C3p0Util {
     //定义数据库连接池
     private static DataSource ds;
 
@@ -61,6 +62,6 @@ public class DCUtil {
 
     public static void closeConn(ResultSet rs, Statement stmt, PreparedStatement prestmt
             , CallableStatement cstmt, Connection conn) {
-        DBUtil.closeConn(rs, stmt, prestmt, cstmt, conn);
+        JDBCUtil.closeConn(rs, stmt, prestmt, cstmt, conn);
     }
 }

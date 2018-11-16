@@ -1,4 +1,7 @@
-package com.nit.demo.dbms.util.jdbc;
+package com.nit.demo.dbms.util.jdbc.dbcp;
+
+import com.nit.demo.dbms.util.jdbc.JDBCConfig;
+import com.nit.demo.dbms.util.jdbc.JDBCUtil;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -16,10 +19,9 @@ import java.util.Properties;
  * Proxool是一种Java数据库连接池技术。sourceforge下的一个开源项目,
  * 这个项目提供一个健壮、易用的连接池，最为关键的是这个连接池提供监控的功能，方便易用，便于发现连接泄漏的情况。
  *
- * 2999 2870 2819 2713 2690
  * @date 2018/11/12 23:01
  */
-public class DPUtil {
+public class ProxoolUtil {
 
     /**
      * Descriptions: 定义Proxool的MySQL数据库连接信息<p>
@@ -51,6 +53,6 @@ public class DPUtil {
 
     public static void closeConn(ResultSet rs, Statement stmt, PreparedStatement prestmt
             , CallableStatement cstmt, Connection conn) {
-        DBUtil.closeConn(rs, stmt, prestmt, cstmt, conn);
+        JDBCUtil.closeConn(rs, stmt, prestmt, cstmt, conn);
     }
 }

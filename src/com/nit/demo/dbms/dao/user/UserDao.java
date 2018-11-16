@@ -1,8 +1,8 @@
 package com.nit.demo.dbms.dao.user;
 
 import com.nit.demo.dbms.model.UserBean;
-import com.nit.demo.dbms.util.jdbc.DBUtil;
-import com.nit.demo.dbms.util.jdbc.DPUtil;
+import com.nit.demo.dbms.util.jdbc.JDBCUtil;
+import com.nit.demo.dbms.util.jdbc.dbcp.ProxoolUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class UserDao implements UserDaoInterface {
 
         try {
             //使用不同的连接方式
-            conn = DPUtil.getConn();
+            conn = ProxoolUtil.getConn();
             conn.setAutoCommit(false);
             if (loginType.equals(1)) {
                 // 通过语句集的方式进行查询
@@ -65,7 +65,7 @@ public class UserDao implements UserDaoInterface {
             e.printStackTrace();
         } finally {
             // 关闭数据库实例
-            DPUtil.closeConn(rs, stmt, prestmt, cstmt, conn);
+            ProxoolUtil.closeConn(rs, stmt, prestmt, cstmt, conn);
         }
         return listUser;
     }
@@ -79,7 +79,7 @@ public class UserDao implements UserDaoInterface {
 
         try {
             //使用不同的连接方式
-            conn = DBUtil.getConn();
+            conn = JDBCUtil.getConn();
             String sql = "select user_id, login_name, user_name from tb_user";
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
@@ -95,7 +95,7 @@ public class UserDao implements UserDaoInterface {
             e.printStackTrace();
         } finally {
             // 关闭数据库实例
-            DBUtil.closeConn(rs, stmt, null, null, conn);
+            JDBCUtil.closeConn(rs, stmt, null, null, conn);
         }
         return listUser;
     }

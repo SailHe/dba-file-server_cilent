@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.nit.demo.dbms.model.UserBean;
-import com.nit.demo.dbms.util.DMUtil;
+import com.nit.demo.dbms.util.MybatisUtil;
 
 /**
  * Descriptions: 使用Mybatis实现的用户访问对象(DAO)<p>
@@ -23,7 +23,7 @@ public class UserMybatisDao implements UserDaoInterface {
         SqlSession session = null;
         List<UserBean> listUser = new ArrayList<>();
         try {
-            sessionFactory = DMUtil.getConn();
+            sessionFactory = MybatisUtil.getConn();
             // 创建Session
             session = sessionFactory.openSession();
             // 映射sql的标识字符串
@@ -34,7 +34,7 @@ public class UserMybatisDao implements UserDaoInterface {
             e.printStackTrace();
         } finally {
             // 关闭数据库实例
-            DMUtil.closeConn(session, sessionFactory);
+            MybatisUtil.closeConn(session, sessionFactory);
         }
         return listUser;
     }
@@ -45,7 +45,7 @@ public class UserMybatisDao implements UserDaoInterface {
         SqlSession session = null;
         List<UserBean> listUser = new ArrayList<>();
         try {
-            sessionFactory = DMUtil.getConn();
+            sessionFactory = MybatisUtil.getConn();
             // 创建Session
             session = sessionFactory.openSession();
             //映射sql的标识字符串
@@ -56,7 +56,7 @@ public class UserMybatisDao implements UserDaoInterface {
             e.printStackTrace();
         } finally {
             // 关闭数据库实例
-            DMUtil.closeConn(session, sessionFactory);
+            MybatisUtil.closeConn(session, sessionFactory);
         }
         return listUser;
     }

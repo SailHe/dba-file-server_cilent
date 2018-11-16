@@ -17,19 +17,40 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
  *
  * @date 2018/11/12 23:01
  */
-public class DHUtil {
+public class HibernateUtil {
 
-    // 获得与指定数据库的连接
-    public static SessionFactory getConn() throws SQLException, ClassNotFoundException {
+    private static Configuration configuration;
+    private static ServiceRegistry serviceRegistry;
+    /**
+     * Descriptions: SessionFactory 可以创建并打开新的 Session。
+     *         一个 Session 代表一个单线程的单元操作，
+     *         org.hibernate.SessionFactory 则是个线程安全的全局对象，只需要被实例化一次。<p>
+     *
+     * @author SailHe
+     * @date 2018/11/16 14:55
+     */
+    private static SessionFactory sessionFactory;
+
+    static {
         // 不带参数的configure方法将默认加载hibernate.cfg.xml文件
-        Configuration configuration = new Configuration().configure();
+        configuration = new Configuration().configure();
         // 通过addAnnotatedClass方法添加已经注解的持久化类
         configuration.addAnnotatedClass(com.nit.demo.dbms.model.UserBean.class);
-        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+        serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties()).build();
         // 以Configuration实例创建SessionFactory实例
-        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+    }
+
+    // 获得与指定数据库的连接
+    public static SessionFactory getConnOld() throws SQLException, ClassNotFoundException {
         return sessionFactory;
+    }
+
+    public static Session getConn() throws ClassNotFoundException {
+        //返回“当前的”工作单元
+        //sessionFactory.getCurrentSession();
+        return sessionFactory.openSession();
     }
 
     // 释放资源，关闭数据库连接

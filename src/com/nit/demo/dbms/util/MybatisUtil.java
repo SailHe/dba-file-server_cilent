@@ -13,7 +13,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
  *
  * @date 2018/11/12 23:01
  */
-public class DMUtil {
+public class MybatisUtil {
 
     // 获得与指定数据库的连接
     public static SqlSessionFactory getConn() throws SQLException, ClassNotFoundException {
@@ -21,7 +21,7 @@ public class DMUtil {
         // mybatis的配置文件
         String resource = "mybatis.xml";
         // 使用类加载器加载mybatis的配置文件（它也加载关联的映射文件）
-        InputStream is = DMUtil.class.getClassLoader().getResourceAsStream(resource);
+        InputStream is = MybatisUtil.class.getClassLoader().getResourceAsStream(resource);
         // 构建sqlSession的工厂
         SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(is);
         // 使用MyBatis提供的Resources类加载mybatis的配置文件（它也加载关联的映射文件）

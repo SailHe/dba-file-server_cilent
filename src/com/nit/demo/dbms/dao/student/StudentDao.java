@@ -1,6 +1,6 @@
 package com.nit.demo.dbms.dao.student;
 
-import com.nit.demo.dbms.util.jdbc.DBUtil;
+import com.nit.demo.dbms.util.jdbc.JDBCUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ public class StudentDao {
 
     // 插入操作
     public int insert(StudentBean student) {
-        Connection conn = DBUtil.getConn(); // 获取连接
+        Connection conn = JDBCUtil.getConn(); // 获取连接
         PreparedStatement prestmt = null; // 预编译语句集
         ResultSet rs = null; // 结果集
         int i = 0;
@@ -33,14 +33,14 @@ public class StudentDao {
             e.printStackTrace();
         } finally {
             // 注意要关闭连接及相关资源
-            DBUtil.closeConn(rs, null, prestmt, null, conn);
+            JDBCUtil.closeConn(rs, null, prestmt, null, conn);
         }
         return i;
     }
 
     // 删除操作
     public int delete(String sName) {
-        Connection conn = DBUtil.getConn();
+        Connection conn = JDBCUtil.getConn();
         Statement stmt = null;// 声明语句集
         int i = 0;
         String sql = "delete from student where SName='" + sName + "'";
@@ -54,14 +54,14 @@ public class StudentDao {
             e.printStackTrace();
         } finally {
             // 注意要关闭连接及相关资源
-            DBUtil.closeConn(null, stmt, null, null, conn);
+            JDBCUtil.closeConn(null, stmt, null, null, conn);
         }
         return i;
     }
 
     // 更新操作
     public int update(StudentBean student) {
-        Connection conn = DBUtil.getConn();
+        Connection conn = JDBCUtil.getConn();
         PreparedStatement prestmt = null;// 预编译语句集
         ResultSet rs = null;
         int i = 0;
@@ -75,14 +75,14 @@ public class StudentDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            DBUtil.closeConn(rs, null, prestmt, null, conn);
+            JDBCUtil.closeConn(rs, null, prestmt, null, conn);
         }
         return i;
     }
 
     // 查询并直接显示到控制台
     public Integer getAll() {
-        Connection conn = DBUtil.getConn();
+        Connection conn = JDBCUtil.getConn();
         PreparedStatement prestmt = null;// 预编译语句集
         ResultSet rs = null;
         String sql = "select * from student";
@@ -101,14 +101,14 @@ public class StudentDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            DBUtil.closeConn(rs, null, prestmt, null, conn);
+            JDBCUtil.closeConn(rs, null, prestmt, null, conn);
         }
         return null;
     }
 
     // 查询并转换为List数据结构
     public List<StudentBean> getStudentInfo(String strQuery) {
-        Connection conn = DBUtil.getConn();
+        Connection conn = JDBCUtil.getConn();
         PreparedStatement prestmt = null;
         ResultSet rs = null;
         List<StudentBean> listStudent = new ArrayList<StudentBean>();
@@ -129,7 +129,7 @@ public class StudentDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            DBUtil.closeConn(rs, null, prestmt, null, conn);
+            JDBCUtil.closeConn(rs, null, prestmt, null, conn);
         }
         return listStudent;
     }
