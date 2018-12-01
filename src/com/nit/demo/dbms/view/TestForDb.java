@@ -2,8 +2,6 @@ package com.nit.demo.dbms.view;
 
 import com.nit.demo.dbms.dao.user.UserDao;
 import com.nit.demo.dbms.dao.user.UserDaoInterface;
-import com.nit.demo.dbms.dao.user.UserHibernateDao;
-import com.nit.demo.dbms.dao.user.UserMybatisDao;
 import com.nit.demo.dbms.model.UserBean;
 
 import java.util.List;
@@ -41,10 +39,15 @@ public class TestForDb {
 	public static void main(String[] srg) {
         // 初始化用户实例进行测试
 
-        //C3p0: 2336 2642 2388 2541                avl:2476.75
+        //数据库连接池效率比较
+
+        //Druid 1499 1767 1435 1934 1615           avl:1650
+        //C3p0: 2336 2642 2388 2541                avl:2476.75   2031 2352
         //JDBC 2560 2508 2487 2535                 avl:2522.5
         //Proxool 2999 2870 2819 2713 2690         avl:2818.2
         test(new UserDao());
+
+        //持久层框架效率比较
 
         //更改session获取方法之前(34536 36124)        avl:35330
         // -> 更改之后(4879 5094 5284 4924)          avl:5045.25
@@ -52,5 +55,6 @@ public class TestForDb {
 
         //8030 8342 7828 7493 7674                 avl:7873.4
         //test(new UserMybatisDao());
+
 	}
 }

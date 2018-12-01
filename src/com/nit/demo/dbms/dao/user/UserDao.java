@@ -1,6 +1,7 @@
 package com.nit.demo.dbms.dao.user;
 
 import com.nit.demo.dbms.model.UserBean;
+import com.nit.demo.dbms.util.druid.DruidUtil;
 import com.nit.demo.dbms.util.jdbc.JDBCUtil;
 import com.nit.demo.dbms.util.jdbc.dbcp.C3p0Util;
 import com.nit.demo.dbms.util.jdbc.dbcp.ProxoolUtil;
@@ -28,7 +29,7 @@ public class UserDao implements UserDaoInterface {
 
         try {
             //使用不同的连接方式
-            conn = C3p0Util.getConn();
+            conn = DruidUtil.getConn();
             conn.setAutoCommit(false);
             if (loginType.equals(1)) {
                 // 通过语句集的方式进行查询
